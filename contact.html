@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Traccy Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <div class="left-header">
+            <div class="profile-picture">
+                <img src="smallpic.jpg" alt="Traccy Anak Garit">
+            </div>
+            <div class="name-title">
+                <span class="name-box">TRACCY ANAK GARIT</span>
+            </div>
+        </div>
+
+        <!-- Right Section: Navigation Links and Dark Mode Toggle Button -->
+        <div class="right-header">
+            <!-- Hamburger / toggle button for mobile -->
+            <button class="menu-toggle icon-btn" aria-label="Toggle Menu">☰</button>
+
+            <!-- Navigation -->
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Dark Mode Toggle Button -->
+            <button id="theme-toggle" aria-label="Toggle dark mode" class="icon-btn" title="Toggle theme">🌙</button>
+        </div>
+    </div>
+</header>
+
+<!-- Contact Section -->
+<section id="contact">
+    <div class="contact-container">
+        <!-- Left: Contact Information (Email, LinkedIn, Phone) -->
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            <ul>
+                <li>
+                    <span class="label"><i class="fas fa-phone-alt"></i> Phone</span>
+                    <span class="value">+60 11-3551 8726</span>
+                </li>
+                <li>
+                    <span class="label"><i class="fas fa-envelope"></i> Email</span>
+                    <span class="value"><a href="mailto:101228@siswa.unimas.my">101228@siswa.unimas.my</a></span>
+                </li>
+                <li>
+                    <span class="label"><i class="fab fa-linkedin"></i> LinkedIn</span>
+                    <span class="value"><a href="https://www.linkedin.com/in/traccy-garit-7a5b1a295" target="_blank">www.linkedin.com/in/traccy-garit-7a5b1a295</a></span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Right: Contact Form -->
+        <div class="contact-form">
+            <h2>Send a Message</h2>
+            <form id="contactForm" action="#" method="POST">
+                <div class="form-group">
+                    <label for="first-name">First Name *</label>
+                    <input type="text" id="first-name" name="first-name" required placeholder="Your name">
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name *</label>
+                    <input type="text" id="last-name" name="last-name" required placeholder="Your last name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required placeholder="Tell me about your project..."></textarea>
+                </div>
+                <button type="submit" class="button">Submit</button>
+                <button type="button" id="clear-form" class="button">Remove All</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 Traccy Portfolio</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
