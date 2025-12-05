@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Traccy Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <div class="left-header">
+            <div class="profile-picture">
+                <img src="smallpic.jpg" alt="Traccy Anak Garit">
+            </div>
+            <div class="name-title">
+                <span class="name-box">TRACCY ANAK GARIT</span>
+            </div>
+        </div>
+
+        <!-- Right Section: Navigation Links and Dark Mode Toggle Button -->
+        <div class="right-header">
+            <!-- Hamburger / toggle button for mobile -->
+            <button class="menu-toggle icon-btn" aria-label="Toggle Menu">☰</button>
+
+            <!-- Navigation -->
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Dark Mode Toggle Button -->
+            <button id="theme-toggle" aria-label="Toggle dark mode" class="icon-btn" title="Toggle theme">🌙</button>
+        </div>
+    </div>
+</header>
+
+<!-- Projects Section -->
+<section id="projects">
+    <h1 class="projects-title">My Projects</h1>
+
+    <!-- Project 1 - UI/UX ART App -->
+    <div class="project">
+        <div class="project-bar"></div>
+        <div class="project-content">
+            <h3>UI/UX ART App</h3>
+            <p>Role: UI/UX Designer</p>
+            <p class="project-description">
+                A high-fidelity prototype designed for an Autonomous Rapid Transit (ART) app. The project focuses on real-time tracking, ticket booking, and providing interactive maps for users to navigate urban transit systems.
+            </p>
+            <a href="https://www.figma.com/proto/fVdb32ctGkCEbaJ6YRAId3/Untitled?node-id=9-1158" class="button" target="_blank">View Prototype</a>
+        </div>
+        <div class="project-image">
+            <img src="project1.png" alt="UI/UX ART App">
+            <!-- Button to open the image in a modal -->
+            <button class="view-image-btn" onclick="openModal('project1.png')">View Image</button>
+        </div>
+    </div>
+
+    <!-- Project 2 - Tourist Spot App -->
+    <div class="project">
+        <div class="project-bar"></div>
+        <div class="project-content">
+            <h3>Tourist Spot App</h3>
+            <p>Role: App Developer</p>
+            <p class="project-description">
+                This mobile app helps users discover exciting tourist destinations with features such as example of places, detailed descriptions, cost and tips while visit the spot. it also allowed useer to share the page, making it easier to plan trips with friends or family.
+            </p>
+            <a href="touristspot.apk" class="button" download>Download APK</a>
+        </div>
+        <div class="project-image">
+            <img src="project2.jpg" alt="Tourist Spot App">
+            <!-- Button to open the image in a modal -->
+            <button class="view-image-btn" onclick="openModal('project2.jpg')">View Image</button>
+        </div>
+    </div>
+
+    <!-- Project 3 - Zoom Rental -->
+    <div class="project">
+        <div class="project-bar"></div>
+        <div class="project-content">
+            <h3>Zoom Rental</h3>
+            <p>Role: Full-Stack Developer</p>
+            <p class="project-description">
+                A rental management system designed for staff to manage vehicle rentals efficiently. The system features a vehicle database, staff management, and rental booking functionality. It allows staff to oversee vehicle availability, process bookings, manage payment records, and track vehicle conditions, making the entire rental process streamlined and organized.
+            </p>
+            <a href="zoomrental.pdf" class="button" target="_blank">View Project</a>
+        </div>
+        <div class="project-image">
+            <img src="project3.png" alt="Zoom Rental">
+            <!-- Button to open the image in a modal -->
+            <button class="view-image-btn" onclick="openModal('project3.png')">View Image</button>
+        </div>
+    </div>
+</section>
+
+<!-- Modal for Image View -->
+<div id="imageModal" class="modal">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+</div>
+
+<footer>
+    <p>&copy; 2025 Traccy Portfolio</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
