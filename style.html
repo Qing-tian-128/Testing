@@ -1,0 +1,1385 @@
+/* Basic Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;  /* Make sure the body and html take up the full height of the page */
+    min-height: 100vh; /* Make sure the body covers the full viewport height */
+}
+
+body {
+    /* Background pic */
+    background-image: url('background.jpg');
+    background-size: cover; /* Make the image cover the entire page */
+    background-position: center center; /* Center the background image */
+    background-attachment: fixed; /* Keep the background fixed while scrolling */
+    background-repeat: no-repeat; /* Ensure the image doesn't repeat */
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column; /* Align elements vertically */
+}
+
+/* Header */
+header {
+    background-color: #e0f2ff;
+    padding: 10px 0;
+    border-bottom: 2px solid #ccc;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Creates space between left and right sections */
+    align-items: center; /* Vertically center the items */
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Left Section: Profile Picture and Name */
+.left-header {
+    display: flex;
+    align-items: center; /* Ensures profile picture and name are in a row */
+}
+
+.profile-picture {
+    margin-right: 15px; /* Space between the picture and name (increased) */
+}
+
+.profile-picture img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Make it a circle */
+    object-fit: cover; /* Ensure the image covers the area without stretching */
+}
+
+.name-title {
+    display: flex;
+    align-items: center;
+}
+
+.name-box {
+    color: black; /* Set the color of the name */
+    font-weight: bold;
+    font-size: 1.5em; /* Increase font size for name */
+}
+
+/* Right Section: Navigation Links and Dark Mode Toggle */
+.right-header {
+    display: flex;
+    align-items: center; /* Align the navigation and button vertically */
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;  /* Default color for links */
+    font-weight: normal;
+    font-size: 20px;
+}
+
+nav ul li a:hover {
+    color: blue;  /* Change color to blue on hover */
+}
+
+/* Change the active link color to blue */
+nav ul li a.active {
+    color: blue;  /* Active link color */
+    font-weight: bold;  /* Make the active link bold */
+}
+
+/* Hide toggle button on desktop */
+.menu-toggle {
+    display: none;
+}
+
+/* Desktop nav menu */
+.nav-menu {
+    display: flex;
+}
+
+/* Hide menu by default */
+.nav-links {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  background: #333;
+  padding: 1.5rem;
+}
+
+/* Show menu when active */
+.nav-links.active {
+  display: flex;
+}
+
+/* Position toggle button properly */
+.menu-toggle {
+  font-size: 1.7rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 999;        /* keeps icon above menu */
+}
+
+/* Hide toggle icon when menu is open (optional, clean UI) */
+.menu-toggle.hide {
+  display: none;
+}
+
+/* Mobile: max-width 768px */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        font-size: 2rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-left: auto;
+    }
+
+    .nav-menu {
+        display: none; /* hide menu initially */
+        width: 100%;
+        flex-direction: column;
+        margin-top: 10px;
+        background-color: #e0f2ff;
+        border-radius: 8px;
+        padding: 10px 0;
+    }
+
+    .nav-menu.active {
+        display: flex; /* show menu when toggle is active */
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-menu ul li {
+        margin: 5px 0;
+        text-align: center;
+    }
+}
+
+
+/* Dark Mode Toggle Button */
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 10px;
+    transition: transform 0.2s ease;
+}
+
+.icon-btn:hover {
+    transform: scale(1.2);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #e0f2ff;
+    color: black; /* This sets the font color of the footer */
+    margin-top: auto; /* Push footer to the bottom */
+}
+
+/* Dark Mode Styles */
+[data-theme='dark'] {
+    position: relative;
+    color: #e0e0e0; /* Light text color for dark mode */
+}
+
+/* Dark Mode Background Overlay */
+[data-theme='dark']::before {
+    content: "";
+    position: fixed; /* Changed to fixed to ensure full coverage */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Ensure the overlay covers the full viewport height */
+    background: rgba(0, 0, 0, 0.7); /* Dark transparent overlay */
+    z-index: -1; /* Ensure the overlay is below content */
+}
+
+/* Header */
+[data-theme='dark'] header {
+    background-color: #333;  /* Dark header */
+    border-bottom: 2px solid #444;  /* Subtle border at the bottom */
+}
+
+[data-theme='dark'] .name-box {
+    color: white; /* Set the text color to white */
+}
+
+[data-theme='dark'] nav ul li a {
+    color: #e0e0e0;  /* Light color for navigation links */
+}
+
+[data-theme='dark'] nav ul li a:hover {
+    color: #90caf9;  /* Light blue hover effect */
+}
+
+/* Footer */
+[data-theme='dark'] footer {
+    background-color: #333;  /* Dark footer */
+    color: #e0e0e0;  /* Light text for footer */
+}
+
+/* Ensure Links Are Visible */
+[data-theme='dark'] a {
+    color: #e0e0e0;  /* Light color for all links in dark mode */
+    text-decoration: none;  /* Remove underlines */
+}
+
+[data-theme='dark'] a:hover {
+    color: #90caf9;  /* Light blue color on hover */
+    text-decoration: underline;  /* Optional: Add underline on hover for better visibility */
+}
+
+/* Buttons */
+[data-theme='dark'] .button {
+    background-color: #444;  /* Darker background for buttons */
+    color: #e0e0e0;  /* Light text on buttons */
+    border: 1px solid #666;  /* Dark border to contrast against dark background */
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 12px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+[data-theme='dark'] .button:hover {
+    background-color: #666;  /* Lighter background on hover */
+    border-color: #888;  /* Slightly lighter border */
+}
+
+[data-theme='dark'] .button:focus {
+    outline: 2px solid #90caf9;  /* Focus ring for accessibility */
+}
+
+/* Home Section */
+[data-theme='dark'] #home {
+    background-color: #121212; /* Dark background for the home section */
+    background-size: cover;  /* Make sure the background image covers the section */
+    background-position: 75% 70%; /* Center the background */
+    background-attachment: fixed; /* Keep it fixed while scrolling */
+    background-repeat: no-repeat; /* Avoid repeating the background image */
+    padding: 50px 0; /* Add some padding to give it space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; /* Allow home section to grow and push footer down */
+    text-align: center;
+    color: white; /* White text on top of the image */
+
+}
+
+[data-theme='dark'] .home-box {
+    background-color: rgbargba(33, 33, 33, 0.75);  /* Semi-transparent dark background for home box */
+}
+
+[data-theme='dark'] .home-content a.button {
+    padding: 10px 20px;
+    background-color: #444;  /* Darker background for the button in dark mode */
+    color: #e0e0e0;  /* Light text for the button */
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 12px;
+    transition: background-color 0.3s;
+}
+
+/* Hover Effect in Dark Mode */
+[data-theme='dark'] .home-content a.button:hover {
+    background-color: #666;  /* Lighter background on hover */
+}
+
+/* Project Section */
+[data-theme='dark'] #projects {
+    width: 80%;
+    margin: 0 auto;
+    padding: 40px 0;
+    flex-grow: 1; /* Allow the projects section to take remaining space */
+}
+
+[data-theme='dark'] .project {
+    display: flex;
+    background-color: rgba(33, 33, 33, 0.1); /* Dark background for projects */
+    margin-bottom: 30px;
+    border-radius: 12px; /* Slightly rounded corners */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* 3D shadow effect */
+    padding: 20px;
+    align-items: center;
+    width: 100%;
+    backdrop-filter: blur(10px); /* Glass blur effect */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Add a hover effect to enhance the 3D effect */
+[data-theme='dark'] .project:hover {
+    transform: translateY(-10px); /* Slightly lift the box on hover */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+}
+
+[data-theme='dark'] .project-content h3,
+[data-theme='dark'] .project-content p {
+    color: #e0e0e0; /* Light text for project titles and descriptions */
+}
+
+[data-theme='dark'] .button {
+    background-color: #444;  /* Darker background for the button */
+    color: #e0e0e0;  /* Light text for the button */
+    border: 1px solid #666;  /* Dark border to contrast against dark background */
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 12px;  /* Adjusted border radius for the button */
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+[data-theme='dark'] .button:hover {
+    background-color: #666;  /* Lighter background on hover */
+    border-color: #888;  /* Slightly lighter border on hover */
+}
+
+[data-theme='dark'] .button:focus {
+    outline: 2px solid #90caf9;  /* Focus ring for accessibility */
+}
+
+[data-theme='dark'] .view-image-btn {
+    padding: 10px 20px;
+    background-color: #444;  /* Darker background for the button */
+    color: #e0e0e0;  /* Light text on buttons */
+    border: none; /* Removed border */
+    font-weight: bold;
+    border-radius: 12px;
+    transition: background-color 0.3s;
+    display: inline-block;
+}
+
+[data-theme='dark'] .view-image-btn:hover {
+    background-color: #666;  /* Lighter background on hover */
+}
+
+/* About Section Text for Dark Mode */
+[data-theme='dark'] .about-right {
+    font-size: 1.1em;
+    color: #e0e0e0; /* Light text for the about-right section */
+    line-height: 1.8;
+}
+
+/* Section Box Styling - Removed for Dark Mode */
+[data-theme='dark'] .section-box {
+    background-color: transparent; /* Remove the background */
+    box-shadow: none; /* No shadow for a clean look */
+    padding: 0; /* Remove padding */
+    margin: 50px 0; /* Keep some margin for spacing */
+    color: white; /* Light text color */
+    text-align: left;
+}
+
+/* Section Headings - Dark Mode */
+[data-theme='dark'] .section-box h2 {
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #ffe082; /* Light blue for section headers */
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Add underline for the heading in dark mode */
+[data-theme='dark'] .section-box h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #ffe082;
+    margin-top: 6px;
+    border-radius: 2px;
+}
+
+/* Subheadings */
+[data-theme='dark'] .section-box h3 {
+    margin-top: 25px;
+    font-size: 1.5em;
+    color: #e0e0e0; /* Light text color for subheadings */
+    font-weight: 600;
+    position: relative;
+}
+
+/* Add gold accent for subheading markers */
+[data-theme='dark'] .section-box h3::before {
+    content: "✦";
+    margin-right: 8px;
+    color: #FFD700; /* Gold accent for the marker */
+}
+
+/* List Styling */
+[data-theme='dark'] .section-box ul {
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+[data-theme='dark'] .section-box ul li {
+    margin-bottom: 12px;
+    padding-left: 22px;
+    position: relative;
+    line-height: 1.6;
+}
+
+/* List Item Markers for Dark Mode */
+[data-theme='dark'] .section-box ul li::before {
+    content: "➤";
+    position: absolute;
+    left: 0;
+    color: #90caf9; /* Light blue color for markers in dark mode */
+    font-size: 1em;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    [data-theme='dark'] .about-right {
+        text-align: center; /* Center the text for mobile */
+        font-size: 1.2em; /* Adjust font size for better readability */
+    }
+
+    [data-theme='dark'] .section-box {
+        padding: 0 15px; /* Add some padding for better spacing */
+        margin: 20px 0; /* Adjust margin for smaller screens */
+    }
+
+    [data-theme='dark'] .section-box h2 {
+        font-size: 20px; /* Adjust heading font size */
+    }
+
+    [data-theme='dark'] .section-box h3 {
+        font-size: 18px; /* Adjust subheading font size */
+    }
+
+    [data-theme='dark'] .section-box ul li {
+        font-size: 1em; /* Adjust list item font size */
+    }
+}
+
+@media (max-width: 480px) {
+    [data-theme='dark'] .section-box h2 {
+        font-size: 18px; /* Adjust for very small screens */
+    }
+
+    [data-theme='dark'] .section-box h3 {
+        font-size: 16px; /* Adjust subheading font size */
+    }
+
+    [data-theme='dark'] .section-box ul li {
+        font-size: 0.9em; /* Adjust list item font size for very small screens */
+    }
+
+    [data-theme='dark'] .about-right {
+        font-size: 1.1em; /* Adjust main text size for small devices */
+    }
+
+    [data-theme='dark'] .section-box {
+        padding: 0 10px; /* Further reduce padding for tight mobile layouts */
+    }
+}
+
+/* Contact Section */
+[data-theme='dark'] .contact-info {
+    background-color: rgba(33, 33, 33, 0.1);  /* Dark background for contact info */
+    color: #e0e0e0;  /* Light text for contact info */
+}
+
+[data-theme='dark'] .contact-info .value {
+    color: white;  /* White color for the phone number */
+}
+
+[data-theme='dark'] .contact-form {
+    background-color: rgba(33, 33, 33, 0.1);  /* Dark background for the contact form */
+    color: #e0e0e0;  /* Light text for form fields */
+}
+
+[data-theme='dark'] .contact-form input, 
+[data-theme='dark'] .contact-form textarea {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+/* Ensure Textarea Resizes Dynamically */
+[data-theme='dark'] .contact-form textarea {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+[data-theme='dark'] .contact-form button {
+    background-color: #444;  /* Darker button background */
+    color: #e0e0e0;  /* Light text on buttons */
+}
+
+[data-theme='dark'] .contact-form button:hover {
+    background-color: #666;  /* Lighter hover effect for buttons */
+}
+
+/* Dark Mode for Remove All Button */
+[data-theme='dark'] #clear-form {
+    background-color: #9b2d26;  /* Darker red background for the "Remove All" button */
+    color: #e0e0e0;  /* Light text color */
+    border: 1px solid #73211f;  /* Darker border for contrast */
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 12px;
+    transition: background-color 0.3s, border-color 0.3s;
+    display: inline-block;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+[data-theme='dark'] #clear-form:hover {
+    background-color: #6d1f18;  /* Even darker red on hover */
+    border-color: #541618;  /* Slightly darker border on hover */
+}
+
+[data-theme='dark'] #clear-form:focus {
+    outline: 2px solid #90caf9;  /* Focus ring for accessibility */
+}
+
+/* Home Section */
+#home {
+    background-image: url('home.jpg'); 
+    background-size: cover;  /* Make sure the background image covers the section */
+    background-position: 75% 70%; /* Center the background */
+    background-attachment: fixed; /* Keep it fixed while scrolling */
+    background-repeat: no-repeat; /* Avoid repeating the background image */
+    padding: 50px 0; /* Add some padding to give it space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; /* Allow home section to grow and push footer down */
+    text-align: center;
+    color: white; /* White text on top of the image */
+}
+
+/* Home Content (Greeting Text) */
+.home-content h1 {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    opacity: 0; /* Start with the text hidden */
+    transform: translateY(-30px); /* Start the text slightly above */
+    animation: fadeInUp 1.5s ease-in-out forwards; /* Apply the animation */
+}
+
+.home-content p {
+    font-size: 1.5em;
+}
+
+.home-content .button-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.home-content a.button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 12px;
+    transition: background-color 0.3s;
+}
+
+.home-content a.button:hover {
+    background-color: #0056b3;
+}
+
+/* Animation to make the title appear smoothly */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px); /* Start position above */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End position at normal place */
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .right-header {
+        margin-top: 10px;
+    }
+
+    .home-content h1 {
+        font-size: 24px;
+    }
+
+    .home-content p {
+        font-size: 16px;
+    }
+
+    .button-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .button {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-picture img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .name-title {
+        font-size: 18px;
+    }
+
+    .right-header nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .right-header nav ul li {
+        margin-bottom: 10px;
+    }
+
+    .button {
+        font-size: 14px;
+    }
+}
+
+/* Projects Section */
+#projects {
+    width: 80%;
+    margin: 0 auto;
+    padding: 40px 0;
+    flex-grow: 1; /* Allow the projects section to take remaining space */
+}
+
+.projects-title {
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: white;
+}
+
+/* Project Styling with 3D Glass Effect */
+.project {
+    display: flex;
+    margin-bottom: 30px;
+    background-color: rgba(255, 255, 255, 0.75); /* Transparent white background */
+    border-radius: 12px; /* Slightly rounded corners */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* 3D shadow effect */
+    padding: 20px;
+    align-items: center;
+    width: 100%;
+    backdrop-filter: blur(10px); /* Glass blur effect */
+    background: rgba(255, 255, 255, 0.5); /* Semi-transparent background for the glass effect */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Add a hover effect to enhance the 3D effect */
+.project:hover {
+    transform: translateY(-10px); /* Slightly lift the box on hover */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+}
+
+.project-content {
+    flex: 1;
+}
+
+.project-content h3 {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.project-content p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.project-description {
+    font-size: 1em;
+    color: #555;
+}
+
+.project-image {
+    width: 200px;
+    height: auto;
+    margin-left: 20px;
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.modal-content {
+    max-width: 80%;
+    max-height: 80%;
+    display: block;
+    margin: 0 auto;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .right-header {
+        margin-top: 10px;
+    }
+
+    .projects-title {
+        font-size: 24px;
+    }
+
+    .project {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-bar {
+        width: 80%;
+        height: 2px;
+        margin: 10px 0;
+    }
+
+    .project-content {
+        text-align: center;
+    }
+
+    .button-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .button {
+        margin-bottom: 10px;
+    }
+
+    .view-image-btn {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-picture img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .name-title {
+        font-size: 18px;
+    }
+
+    .right-header nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .right-header nav ul li {
+        margin-bottom: 10px;
+    }
+
+    .button {
+        font-size: 14px;
+    }
+
+    .project-title {
+        font-size: 20px;
+    }
+
+    .project-description {
+        font-size: 14px;
+    }
+
+    .project-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    .modal-content {
+        width: 90%;
+        max-width: 500px;
+    }
+}
+
+/* Button Styling */
+.view-image-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 12px;
+    border: none;
+    border: none;
+    transition: background-color 0.3s;
+    display: inline-block;
+}
+
+.view-image-btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* Button Styling */
+.button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 12px;
+    transition: background-color 0.3s;
+    display: inline-block;
+    margin-top: 10px; /* Add some space between description and button */
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* About Me Section */
+#about {
+    padding: 40px;
+    text-align: center;
+    color: white;
+}
+
+.about-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.about-left {
+    flex: 1;
+    text-align: center;
+}
+
+.profile-img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.about-right {
+    flex: 2;
+    text-align: left;
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+.about-right h2 {
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    #about {
+        padding: 40px 20px;
+    }
+
+    .about-content {
+        flex-direction: column; /* Stack profile image and text on mobile */
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-left {
+        margin-right: 0;
+        margin-bottom: 20px; /* Space between image and text */
+    }
+
+    .profile-img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .about-right h2 {
+        font-size: 2em;
+    }
+
+    .about-right p {
+        font-size: 1.1em;
+    }
+
+    ul li {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-img {
+        width: 150px; /* Smaller image on mobile */
+        height: 150px;
+    }
+
+    .about-right h2 {
+        font-size: 1.6em;
+    }
+
+    .about-right p {
+        font-size: 1em;
+    }
+
+    ul li {
+        font-size: 0.9em;
+    }
+}
+
+/* Box Styling for Sections */
+.section-box {
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 50px 0;
+    text-align: left;
+    color: white; /* keep text visible on your background */
+}
+
+/* Section Headings */
+.section-box h2 {
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #ffe082; /* golden accent */
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-box h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #ffe082;
+    margin-top: 6px;
+    border-radius: 2px;
+}
+
+/* Subheadings */
+.section-box h3 {
+    margin-top: 25px;
+    font-size: 1.5em;
+    color: #aad4ff; /* light blue accent */
+    font-weight: 600;
+    position: relative;
+}
+
+.section-box h3::before {
+    content: "✦";
+    margin-right: 8px;
+    color: #FFD700; /* gold accent */
+}
+
+/* Optional supporting shade for lists or subtle text */
+.section-box ul li {
+    color: #E0E0E0; /* supporting neutral shade */
+}
+
+
+/* Lists */
+.section-box ul {
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+.section-box ul li {
+    margin-bottom: 12px;
+    padding-left: 22px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.section-box ul li::before {
+    content: "➤";
+    position: absolute;
+    left: 0;
+    color: #ffe082;
+    font-size: 1em;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    #about {
+        padding: 40px 20px;
+    }
+
+    .about-content {
+        flex-direction: column; /* Stack profile image and text on mobile */
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-left {
+        margin-right: 0;
+        margin-bottom: 20px; /* Space between image and text */
+    }
+
+    .profile-img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .about-right h2 {
+        font-size: 2em;
+    }
+
+    .about-right p {
+        font-size: 1.1em;
+    }
+
+    ul li {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-img {
+        width: 150px; /* Smaller image on mobile */
+        height: 150px;
+    }
+
+    .about-right h2 {
+        font-size: 1.6em;
+    }
+
+    .about-right p {
+        font-size: 1em;
+    }
+
+    ul li {
+        font-size: 0.9em;
+    }
+}
+
+/* Contact Section */
+#contact {
+    background-size: cover;
+    background-position: center center; /* Center the background image */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container for Contact Info and Form */
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-item: center;
+    width: 100%;
+    gap: 40px;
+    max-width: 1200px; /* Ensure it doesn't stretch too wide */
+}
+
+/* Left: Contact Information */
+.contact-info {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.85); /* Transparent background for the glass effect */
+    backdrop-filter: blur(10px); /* Blur effect for glassmorphism */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 450px; /* Set a max width for a tighter layout */
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Vertically center content */
+    text-align: left; /* Ensure text is aligned left */
+    height: 350px; /* Fixed height for the box (optional) */
+    overflow: hidden; /* Ensures content doesn't overflow */
+}
+
+.contact-info h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.contact-info ul {
+    list-style: none;
+    font-size: 1.2em;
+}
+
+.contact-info ul li {
+    margin: 10px 0;
+}
+
+/* Label Styling (Parent) */
+.contact-info .label {
+    font-weight: bold;
+    font-size: 1.5em; /* Larger font size for labels */
+    display: block; /* Makes the label take a full line above the content */
+    margin-bottom: 5px; /* Space between label and content */
+}
+
+/* Value Styling (Child) */
+.contact-info .value {
+    font-size: 1.2em; /* Normal font size for content */
+    color: #333; /* dark gray for better readability */
+}
+
+/* Link Styling */
+.contact-info a {
+    text-decoration: none;
+    color: #007bff; /* Blue color for links */
+}
+
+.contact-info a:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+.contact-info .label i {
+    margin-right: 10px; /* Space between icon and label text */
+    color: var(--primary-color); /* Color for the icons */
+    font-size: 1.2em; /* Size adjustment for the icons */
+}
+
+/* Right: Contact Form */
+.contact-form {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.7); /* Transparent background for the glass effect */
+    backdrop-filter: blur(10px); /* Blur effect for glassmorphism */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.contact-form h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.contact-form .form-group {
+    margin-bottom: 15px;
+}
+
+.contact-form label {
+    font-size: 1.1em;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Form Styling */
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-height: 40px;  /* Ensure there's enough space for text */
+    resize: vertical;  /* Allow vertical resize */
+    transition: height 0.2s ease; /* Smooth transition when resizing */
+}
+
+/* Placeholder Styling */
+.contact-form input::placeholder, .contact-form textarea::placeholder {
+    color: #aaa;  /* Light color for placeholder */
+    font-style: italic;
+}
+
+/* Ensure Textarea Resizes Dynamically */
+.contact-form textarea {
+    min-height: 100px;  /* Ensure it's big enough initially */
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical; /* Allow vertical resizing */
+    transition: height 0.2s ease; /* Smooth transition when resizing */
+}
+
+/* Button Styling */
+.button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 12px;
+    border: none;
+    transition: background-color 0.3s;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Remove All Button Styling */
+#clear-form {
+    padding: 10px 20px;
+    background-color: #ff6f61;  /* Red color to indicate "remove" action */
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    display: inline-block;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#clear-form:hover {
+    background-color: #ff3b2f; /* Darker red on hover */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .right-header {
+        margin-top: 10px;
+    }
+
+    #contact {
+        padding: 20px;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .contact-info, .contact-form {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .contact-info h2, .contact-form h2 {
+        font-size: 20px;
+    }
+
+    .contact-form .form-group input,
+    .contact-form .form-group textarea {
+        font-size: 14px;
+    }
+
+    .contact-form .button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-picture img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .name-title {
+        font-size: 18px;
+    }
+
+    .right-header nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .right-header nav ul li {
+        margin-bottom: 10px;
+    }
+
+    #contact h1 {
+        font-size: 20px;
+    }
+
+    .contact-info h2, .contact-form h2 {
+        font-size: 18px;
+    }
+
+    .contact-form .form-group input,
+    .contact-form .form-group textarea {
+        font-size: 12px;
+    }
+
+    .contact-form .button {
+        font-size: 12px;
+    }
+}
+
